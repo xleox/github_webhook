@@ -36,9 +36,9 @@ app.post('/refreshApp', function (req, res) {
     }
 });
 function severPull(batPath,callback) {
-    console.log(batPath);
+    console.log("C:\\Windows\\System32\\cmd.exe " + batPath);
     cmd.get(
-        batPath,function(data){
+        "C:\\Windows\\System32\\cmd.exe " + batPath,function(data){
             //console.log(data);
             callback(data)
         });
