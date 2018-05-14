@@ -47,5 +47,5 @@ function severPull(callback) {
         });
 }
 var server = app.listen(8849, function () {
-    console.log('hot fix sever start at port:',server.address().port);
+    console.log('www hot fix sever start at port:',server.address().port);
 });
