@@ -19,13 +19,17 @@ app.post('/refreshApp', function (req, res) {
     }
     if(req.body.repository.name == "MallWeb"){
         severPull('D:\\MallApp\\www\\pull.bat',function (data) {
-            console.log(data);
-            res.send('ok')
+            if(data==null)
+                res.send('Www pull success');
+            else
+                res.send('pull error');
         })
     }else if(req.body.repository.name == "MallApp"){
         severPull('D:\\MallApp\\app\\pull.bat',function (data) {
-            console.log(data);
-            res.send('ok')
+            if(data==null)
+                res.send('App pull success');
+            else
+                res.send('pull error');
         })
     }else{
         res.send('we have not this repo name');
