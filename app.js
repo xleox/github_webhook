@@ -18,12 +18,12 @@ app.post('/refreshApp', function (req, res) {
         res.send('read repository.name error');return;
     }
     if(req.body.repository.name == "MallWeb"){
-        severPull('D:\\MallApp\\www\\pull.bata',function (data) {
+        severPull('D:\\MallApp\\www\\pull.bat',function (data) {
             console.log(data);
             res.send('ok')
         })
     }else if(req.body.repository.name == "MallApp"){
-        severPull('D:\\MallApp\\app\\pull.bata',function (data) {
+        severPull('D:\\MallApp\\app\\pull.bat',function (data) {
             console.log(data);
             res.send('ok')
         })
