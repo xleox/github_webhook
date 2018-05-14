@@ -36,6 +36,7 @@ app.post('/refreshApp', function (req, res) {
     }
 });
 function severPull(batPath,callback) {
+    console.log(batPath);
     cmd.get(
         batPath,function(data){
             //console.log(data);
