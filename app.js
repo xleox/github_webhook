@@ -39,9 +39,9 @@ app.post('/refreshApp', function (req, res) {
         res.send('we have not this repo name');
     }
 });
-function severPull(batPath,callback) {
+function severPull(callback) {
     cmd.get(
-        "git pull " + batPath,function(err,data){
+        "git pull",function(err,data){
             //console.log(data);
             callback(err,data)
         });
