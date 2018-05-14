@@ -18,16 +18,20 @@ app.post('/refreshApp', function (req, res) {
         res.send('read repository.name error');return;
     }
     if(req.body.repository.name == "MallWeb"){
-        severPull('D:\\MallApp\\www\\pull.bat',function (data) {
-            if(data==null)
-                res.send('Www pull success');
+        severPull(function (err,data) {
+            if(err==null){
+                console.log(data);
+                res.send('www pull success');
+            }
             else
                 res.send('pull error');
         })
     }else if(req.body.repository.name == "MallApp"){
-        severPull('D:\\MallApp\\app\\pull.bat',function (data) {
-            if(data==null)
-                res.send('App pull success');
+        severPull(function (err,data) {
+            if(data==null){
+                console.log(data);
+                res.send('app pull success');
+            }
             else
                 res.send('pull error');
         })
@@ -36,11 +40,10 @@ app.post('/refreshApp', function (req, res) {
     }
 });
 function severPull(batPath,callback) {
-    console.log("C:\\Windows\\System32\\cmd.exe " + batPath);
     cmd.get(
-        "C:\\Windows\\System32\\cmd.exe " + batPath,function(data){
+        "git pull " + batPath,function(err,data){
             //console.log(data);
-            callback(data)
+            callback(err,data)
         });
 }
 var server = app.listen(8848, function () {
