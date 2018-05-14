@@ -9,7 +9,7 @@ app.get('/', function (req, res) {
     res.send('Hello World!');
 });
 app.post('/refreshApp', function (req, res) {
-    console.log(req.body.repository.name);
+    console.log(req.body.repository);
     res.send('rev hook');
 });
 
