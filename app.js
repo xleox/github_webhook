@@ -40,11 +40,16 @@ app.post('/refreshApp', function (req, res) {
     }
 });
 function severPull(callback) {
-    cmd.get(
-        "git pull",function(err,data){
-            //console.log(data);
-            callback(err,data)
+    cmd.get("git pull",function(err,data){
+        console.log(data);
+        callback(err,data)
+        cmd.get("forever stop app.js",function(err,data){
+            console.log(data);
+            cmd.get("forever start app.js",function(err,data){
+                console.log(data);
+            });
         });
+    });
 }
 var server = app.listen(8848, function () {
     console.log('app hot fix sever start at port:',server.address().port);
